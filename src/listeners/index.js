@@ -1,6 +1,7 @@
 import memberDisconnectListener from './member/disconnect';
 import messageSendListener from './message/send';
 import playerSeekListener from './player/seek';
+import playerSpeedListener from './player/speed';
 import playerStateListener from './player/state';
 import playerTimeListener from './player/time';
 import playerVideoListener from './player/video';
@@ -14,6 +15,7 @@ const initListeners = io => {
     memberDisconnectListener(socket, io);
     messageSendListener(socket, io);
     playerSeekListener(socket, io);
+    playerSpeedListener(socket, io);
     playerStateListener(socket, io);
     playerTimeListener(socket, io);
     playerVideoListener(socket, io);
