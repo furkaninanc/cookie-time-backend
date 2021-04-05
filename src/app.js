@@ -11,7 +11,7 @@ const io = socketio(app, {
   transports: ['websocket'],
 });
 
-app.listen(7284);
+app.listen(process.env.PORT || 80);
 
 export const start = () => {
   io.rooms = {};
