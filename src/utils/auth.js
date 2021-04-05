@@ -43,6 +43,7 @@ export const authMiddleware = (socket, next) => {
   socket.to(socket.room).emit('member:join', { username: socket.username });
 
   socket.emit('join', {
+    speed: socket.server.rooms[room].speed,
     state: socket.server.rooms[room].state,
     time: Math.max.apply(
       Math,
