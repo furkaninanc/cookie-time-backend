@@ -12,7 +12,7 @@ const playerTimeListener = (socket, io) => {
 
       io.rooms[socket.room].members = io.rooms[socket.room].members.map(
         member => {
-          if (member.socket !== socket.id) {
+          if (member.socket === socket.id) {
             member.time = time;
           }
 
