@@ -45,13 +45,11 @@ export const authMiddleware = (socket, next) => {
   socket.to(socket.room).emit('member:join', { username: socket.username });
 
   socket.emit('join', {
-    speed: socket.server.rooms[room].speed,
-    state: socket.server.rooms[room].state,
+    ...socket.server.rooms[room],
     time: Math.max.apply(
       Math,
       socket.server.rooms[room].members.map(member => member.time)
     ),
-    video: socket.server.rooms[room].video,
   });
 
   next();
