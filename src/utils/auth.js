@@ -1,5 +1,5 @@
 import isLength from 'validator/lib/isLength';
-import { generateMember, generateRoom } from './room';
+import { generateMember, generateUsername, generateRoom } from './room';
 
 export const authMiddleware = (socket, next) => {
   let { username, room } = socket.handshake?.query;
@@ -33,6 +33,8 @@ export const authMiddleware = (socket, next) => {
     console.log(`Generating room: '${room}'`);
     socket.server.rooms[room] = generateRoom();
   }
+
+  username = generateUsername(username, room, socket);
 
   socket.server.rooms[room].members.push(generateMember(username, socket));
 
