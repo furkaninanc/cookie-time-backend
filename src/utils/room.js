@@ -14,7 +14,7 @@ export const generateRoom = () => ({
   members: [],
   speed: 1,
   state: 0,
-  video: 'https://cdn.plyr.io/static/blank.mp4',
+  video: '',
 });
 
 export const generateMember = (username, socket) => ({
