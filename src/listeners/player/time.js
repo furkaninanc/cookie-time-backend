@@ -19,6 +19,10 @@ const playerTimeListener = (socket, io) => {
           return member;
         }
       );
+
+      io.of('/')
+        .to(socket.room)
+        .emit('member:time', { username: socket.username, time });
     } catch (error) {
       console.error(error);
     }
